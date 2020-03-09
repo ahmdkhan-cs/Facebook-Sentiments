@@ -1,0 +1,275 @@
+
+:root{
+    --primary-color: #00a8ff;
+    --primary-color-light: #00caff;
+    --accent-color: #eee;
+    --accent-color-dark: #999;
+    --text-color: #333;
+    --white-color: #fff;
+}
+
+/* -------------------------------------------------- */
+/* Basic Setup */
+/* -------------------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    background-color: var(--white-color);
+    color: var(--text-color);
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* Reusable Components */
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* HEADINGS */
+/* -------------------------------------------------- */
+
+h1{
+    font-size: 180%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+
+h2{
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin: 30px 0;
+    letter-spacing: 1px; 
+}
+
+
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: var(--primary-color);
+    content: " ";
+    width: 100px;
+    margin: 0 auto; 
+    margin-top: 30px;
+}
+
+
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* ICONS */
+/* -------------------------------------------------- */
+
+.icon-style{
+    color: var(--primary-color);
+}
+
+
+/* -------------------------------------------------- */
+
+
+
+
+/* -------------------------------------------------- */
+/* LINKS */
+/* -------------------------------------------------- */
+
+.link-style:link,
+.link-style:visited{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.link-style:hover,
+.link-style:active{
+    color: var(--primary-color);
+}
+
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* BUTTONS */
+/* -------------------------------------------------- */
+
+.btn-full{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 85%;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-full:hover{
+    background-color: var(--primary-color-light);
+    color: var(--white-color);
+}
+
+.btn-ghost{
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    font-size: 70%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-ghost:hover{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* HEADER */
+/* -------------------------------------------------- */
+
+header{
+    height: 100vh;
+    background-image: url('../images/hero_background.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* -------------------------------------------------- */
+/* NAVBAR */
+/* -------------------------------------------------- */
+
+.navbar{
+    font-size: 85%;
+    box-shadow: 0 4px 2px -2px var(--accent-color);
+}
+
+.logo-style{
+    width: auto;
+    height: 65px;
+}
+
+.nav-link-style:link,
+.nav-link-style:visited{
+    color: var(--text-color);
+}
+
+.nav-link-style:hover,
+.nav-link-style:active{
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.nav-link-special{
+    font-size: 85%;
+    font-weight: bold;
+}
+
+/* -------------------------------------------------- */
+
+
+
+/* -------------------------------------------------- */
+/* HERO */
+/* -------------------------------------------------- */
+.btn-center{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.hero-btn-full{
+    margin-right: 20px;
+}
+
+.hero-btn{
+    font-size: 95%;
+    padding: 15px 20px;
+}
+
+
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* FEATURES */
+/* -------------------------------------------------- */
+
+
+
+/* -------------------------------------------------- */
+
+
+
+/* -------------------------------------------------- */
+/* Signup and Login */
+/* -------------------------------------------------- */
+
+.authenticating-pages{
+    height: 100vh;
+}
+
+.authenticating-pages-logo-style{
+    height: 100px;
+    width: auto;
+    margin-top: 30px;
+}
+
+.logo-alignment{
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    
+}
+
+.signup-form{
+    width: 30%;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.form{
+    padding: 20px;
+}
+
+.btn-signup{
+    display: flex;
+    justify-content: center;
+}
+
+.input-style{
+    border: 0;
+    outline: none;
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--accent-color-dark);
+    width: 93%;
+    margin-bottom: 10px;
+}
+
+.input-style:focus{
+    border-color: var(--accent-color-dark);
+}
+
+
+.form-icon-style{
+    color: var(--primary-color);
+    margin-right: 3%;
+    font-size: 90%;
+}
+/* -------------------------------------------------- */

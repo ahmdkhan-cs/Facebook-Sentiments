@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static 'ProjectFBSentiments/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ProjectFBSentiments/css/queries.css' %}">
+    <link rel="stylesheet" href="{% static 'ProjectFBSentiments/css/animate.css' %}">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+
+    
+    <title>
+        {% block title %}
+            
+        {% endblock %}
+    </title>
+        
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="logo-style"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars icon-style"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-link nav-link-style" href="#">Home</a>
+                        <a class="nav-link nav-link-style" href="#">Features</a>
+                        <a class="nav-link nav-link-style" href="#">Pricing</a>
+                    </div>
+                    <div class="navbar-nav my-2 my-lg-0">
+                        <a href="#" class="nav-link link-style nav-link-special">SIGN IN</a>
+                        <a href="{% url 'accounts:signup' %}" class="nav-link btn btn-full">SIGN UP FREE</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        {% block hero %}
+            
+        {% endblock %}
+    </header>
+    
+    
+    {% block content %}
+        
+    {% endblock %}
+        
+    <footer>
+
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/706334cc5a.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Waypoint -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'ProjectFBSentiments/js/script.js' %}"></script>
+</body>
+</html>
