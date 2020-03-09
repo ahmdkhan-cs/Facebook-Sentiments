@@ -66,6 +66,13 @@ h2:after{
     margin-top: 30px;
 }
 
+h3{
+    font-size: 150%;
+    word-spacing: 1px;
+    letter-spacing: 4px;
+    margin: 20px 0;
+    font-weight: bold;
+}
 
 /* -------------------------------------------------- */
 
@@ -232,14 +239,16 @@ header{
     justify-content: center;
 }
 
-.signup-form-wrapper{
+.signup-form-wrapper,
+.login-form-wrapper{
     display: flex;
     justify-content: center;
     margin-top: 30px;
     
 }
 
-.signup-form{
+.signup-form,
+.login-form{
     width: 30%;
     box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
@@ -248,7 +257,8 @@ header{
     padding: 20px;
 }
 
-.btn-signup{
+.btn-signup,
+.btn-login{
     display: flex;
     justify-content: center;
 }
@@ -272,4 +282,19 @@ header{
     margin-right: 3%;
     font-size: 90%;
 }
+
+.login-link:link,
+.login-link:visited,
+.login-link:hover,
+.login-link:active{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.signup-link{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
 /* -------------------------------------------------- */

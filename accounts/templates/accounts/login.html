@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap3 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static 'ProjectFBSentiments/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ProjectFBSentiments/css/queries.css' %}">
+    <link rel="stylesheet" href="{% static 'ProjectFBSentiments/css/animate.css' %}">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+
+    
+    <title>Create a new account</title>
+        
+</head>
+<body>
+ 
+    <div class="authenticating-pages">
+        <div class="logo-alignment">
+            <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="authenticating-pages-logo-style"></a>
+        </div>
+        <h3 class="text-center">Login</h3>
+        <!-- <p class="text-center">Signup to see your customer's reviews about your products.</p> -->
+        <div class="login-form-wrapper">
+            <div class="login-form">
+                <form method="POST" class="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <i class="fas fa-user form-icon-style"></i>{{form.username}}
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock form-icon-style"></i>{{form.password}}
+                    </div>
+                    <div class="btn-signup">
+                        <button type="submit" class="btn btn-full">SIGN IN</button>
+                    </div>
+                </form>
+                <p class="text-center">OR</p>
+                <div class="signup-link">
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-ghost">Sign Up Free</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+     <!-- Font Awesome -->
+     <script src="https://kit.fontawesome.com/706334cc5a.js" crossorigin="anonymous"></script>
+
+
+    <!-- Custom JS -->
+    <script src="{% static 'ProjectFBSentiments/js/script.js' %}"></script>
+</body>
+</html>

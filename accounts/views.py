@@ -10,7 +10,7 @@ def signup(request):
         if user_form.is_valid():
             user = user_form.save()
 
-            return redirect('accounts:login')
+            return redirect('index')
 
     else:
         user_form = forms.UserCreateForm()

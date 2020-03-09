@@ -28,6 +28,8 @@
         <div class="logo-alignment">
             <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="authenticating-pages-logo-style"></a>
         </div>
+        <h3 class="text-center">Good choice.</h3>
+        <p class="text-center">Signup to see your customer's reviews about your products.</p>
         <div class="signup-form-wrapper">
             <div class="signup-form">
                 <form method="POST" action="{% url 'accounts:signup' %}" class="form">
@@ -45,10 +47,11 @@
                         <i class="fas fa-lock form-icon-style"></i>{{user.password2}}
                     </div>
                     <div class="btn-signup">
-                        <button type="submit" class="btn btn-full btn-signup">SIGN UP FREE</button>
+                        <button type="submit" class="btn btn-full">SIGN UP FREE</button>
                     </div>
                 </form>
                 <p class="text-center">OR</p>
+                <p class="text-center">Already a user? <a href="{% url 'accounts:login' %}" class="login-link">Login</a></p>
             </div>
         </div>
 
