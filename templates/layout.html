@@ -27,7 +27,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="logo-style"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-link nav-link-style" href="#">Features</a>
+                        <a class="nav-link nav-link-style js--scroll-to-features" href="#">Features</a>
+                        <a class="nav-link nav-link-style" href="#">Contact</a>
+                        <div class="dropdown">
+                            <a class="nav-link nav-link-style dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Follow Us
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item drop-link-style" href="#"><i class="fab fa-facebook-square"></i> Facebook</a>
+                                <a class="dropdown-item drop-link-style" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="navbar-nav my-2 my-lg-0">
                         
@@ -55,13 +65,40 @@
         {% endblock %}
     </header>
     
-    
-    {% block content %}
-        
-    {% endblock %}
+    <div class="content">
+        {% block content %}
+            
+        {% endblock %}
+    </div>
         
     <footer>
+        <div class="container">
+            <div class="row footer-navs">
+                <div class="col-md-4">
+                    <h5 class="footer-heading">Contact</h5>
+                    <p class="footer-text"><i class="fas fa-envelope"></i> &nbsp; FBSentimentshelp@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-heading">Features</h5>
+                    <nav class="nav flex-column">
+                        <a class="footer-links" href="#"><i class="fas fa-arrow-right"></i> &nbsp; Sentiment Analysis</a>
+                        <a class="footer-links" href="#"><i class="fas fa-arrow-right"></i> &nbsp; Generate Graphs</a>
+                        <a class="footer-links" href="#"><i class="fas fa-arrow-right"></i> &nbsp; Save PDF and CSV</a>
+                    </nav>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-heading">Follow Us</h5>
+                    <nav class="nav flex-column">
+                        <a class="footer-links" href="#"><i class="fab fa-facebook-square"></i> &nbsp; Facebook</a>
+                        <a class="footer-links" href="#"><i class="fab fa-twitter"></i> &nbsp; Twitter</a>
+                    </nav>
+                </div>
+            </div>
 
+            <div class="copy-text">
+                <p class="footer-text text-center">&copy; All rights reserved by Facebook Sentiments 2020</p>
+            </div>
+        </div>
     </footer>
     
     <!-- Bootstrap JS -->

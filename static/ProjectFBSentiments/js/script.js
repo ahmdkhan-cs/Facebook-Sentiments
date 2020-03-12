@@ -12,4 +12,18 @@ $('document').ready(function(){
             counter = 0;
         }
     }, 5000);
-})
+
+
+    $('.js--scroll-to-features').click(function(){
+        $('html, body').animate({scrollTop: $('#js--features').offset().top - 100}, 1000);
+    });
+
+
+    $('#js--features').waypoint(function(direction){
+        $('#js--features').addClass('animated fadeIn');
+    },{
+        offset: '30%'
+    });
+
+});
+

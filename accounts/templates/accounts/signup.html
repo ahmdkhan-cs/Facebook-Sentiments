@@ -24,7 +24,7 @@
 </head>
 <body>
  
-    <div class="authenticating-pages">
+    <div class="authenticating-pages js--authenticating-pages">
         <div class="logo-alignment">
             <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="authenticating-pages-logo-style"></a>
         </div>
@@ -32,22 +32,26 @@
         <p class="text-center">Signup to see your customer's reviews about your products.</p>
         <div class="signup-form-wrapper">
             <div class="signup-form">
-                <form method="POST" action="{% url 'accounts:signup' %}" class="form">
+                <form method="POST" action="{% url 'accounts:signup' %}" class="form" name="signup">
                     {% csrf_token %}
                     <div class="form-group">
+                        <p class="text-danger" id="validusername"></p>
                         <i class="fas fa-user form-icon-style"></i>{{user.username}}
                     </div>
                     <div class="form-group">
+                        <p class="text-danger" id="validemail"></p>
                         <i class="fas fa-envelope form-icon-style"></i>{{user.email}}
                     </div>
                     <div class="form-group">
+                        <p class="text-danger" id="validpassword1"></p>
                         <i class="fas fa-lock form-icon-style"></i>{{user.password1}}
                     </div>
                     <div class="form-group">
+                        <p class="text-danger" id="validpassword2"></p>
                         <i class="fas fa-lock form-icon-style"></i>{{user.password2}}
                     </div>
                     <div class="btn-signup">
-                        <button type="submit" class="btn btn-full">SIGN UP FREE</button>
+                        <button type="submit" id="submit" class="btn btn-full">SIGN UP FREE</button>
                     </div>
                 </form>
                 <p class="text-center">OR</p>
@@ -65,6 +69,6 @@
 
 
     <!-- Custom JS -->
-    <script src="{% static 'ProjectFBSentiments/js/script.js' %}"></script>
+    <script src="{% static 'ProjectFBSentiments/js/authentication_script.js' %}"></script>
 </body>
 </html>

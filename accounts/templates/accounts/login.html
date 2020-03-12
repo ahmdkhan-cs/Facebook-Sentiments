@@ -24,29 +24,31 @@
 </head>
 <body>
  
-    <div class="authenticating-pages">
+    <div class="authenticating-pages js--authenticating-pages">
         <div class="logo-alignment">
             <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="authenticating-pages-logo-style"></a>
         </div>
-        <h3 class="text-center">Login</h3>
+        <h3 class="text-center">Sign In</h3>
         <!-- <p class="text-center">Signup to see your customer's reviews about your products.</p> -->
         <div class="login-form-wrapper">
             <div class="login-form">
-                <form method="POST" class="form">
+                <form method="POST" class="form" name="login">
                     {% csrf_token %}
                     <div class="form-group">
+                        <p class="text-danger" id="validusername"></p>
                         <i class="fas fa-user form-icon-style"></i>{{form.username}}
                     </div>
                     <div class="form-group">
+                        <p class="text-danger" id="validpassword"></p>
                         <i class="fas fa-lock form-icon-style"></i>{{form.password}}
                     </div>
                     <div class="btn-signup">
-                        <button type="submit" class="btn btn-full">SIGN IN</button>
+                        <button type="submit" id="submit" class="btn btn-full">SIGN IN</button>
                     </div>
                 </form>
                 <p class="text-center">OR</p>
                 <div class="signup-link">
-                    <a href="{% url 'accounts:signup' %}" class="btn btn-ghost">Sign Up Free</a>
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-ghost">SIGN UP FREE</a>
                 </div>
             </div>
         </div>
@@ -61,6 +63,6 @@
 
 
     <!-- Custom JS -->
-    <script src="{% static 'ProjectFBSentiments/js/script.js' %}"></script>
+    <script src="{% static 'ProjectFBSentiments/js/authentication_script.js' %}"></script>
 </body>
 </html>

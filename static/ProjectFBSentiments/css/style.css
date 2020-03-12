@@ -2,10 +2,12 @@
 :root{
     --primary-color: #00a8ff;
     --primary-color-light: #00caff;
+    --primary-color-lighter: #f1faff;
     --accent-color: #eee;
     --accent-color-dark: #999;
     --text-color: #333;
     --white-color: #fff;
+    --footer-color: #24242b;
 }
 
 /* -------------------------------------------------- */
@@ -39,7 +41,7 @@ body{
 h1{
     font-size: 180%;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 900;
     letter-spacing: 1px;
     word-spacing: 4px;
     text-align: center;
@@ -48,11 +50,12 @@ h1{
 
 
 h2{
-    font-size: 180%;
+    font-size: 160%;
     word-spacing: 2px;
     text-align: center;
-    margin: 30px 0;
+    margin: 50px 0;
     letter-spacing: 1px; 
+    font-weight: bold;
 }
 
 
@@ -63,19 +66,39 @@ h2:after{
     content: " ";
     width: 100px;
     margin: 0 auto; 
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 h3{
-    font-size: 150%;
-    word-spacing: 1px;
-    letter-spacing: 4px;
+    font-size: 140%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
     margin: 20px 0;
+    font-weight: bold;
+}
+
+h4{
+    font-size: 120%;
     font-weight: bold;
 }
 
 /* -------------------------------------------------- */
 
+
+/* -------------------------------------------------- */
+/* PARAGRAPHS */
+/* -------------------------------------------------- */
+
+p{
+    font-size: 90%;
+}
+
+span{
+    font-weight: bold;
+    font-size: 105% !important;
+}
+
+/* -------------------------------------------------- */
 
 /* -------------------------------------------------- */
 /* ICONS */
@@ -151,6 +174,7 @@ header{
     background-image: url('../images/hero_background.jpg');
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 }
 
 
@@ -161,7 +185,9 @@ header{
 .navbar{
     font-size: 85%;
     box-shadow: 0 4px 2px -2px var(--accent-color);
+    background-color: var(--white-color);
 }
+
 
 .logo-style{
     width: auto;
@@ -179,6 +205,10 @@ header{
     border-radius: 5px;
 }
 
+.drop-link-style{
+    font-size: 80%;
+}
+
 .nav-link-special{
     font-size: 85%;
     font-weight: bold;
@@ -191,6 +221,11 @@ header{
 /* -------------------------------------------------- */
 /* HERO */
 /* -------------------------------------------------- */
+.hero{
+    margin-top: 85px;
+}
+
+
 .btn-center{
     display: flex;
     justify-content: center;
@@ -210,14 +245,224 @@ header{
 /* -------------------------------------------------- */
 
 
+
+/* -------------------------------------------------- */
+/* CONTENT */
+/* -------------------------------------------------- */
+
+.content{
+    min-height: 100vh;
+}
+
+/* -------------------------------------------------- */
+
+
 /* -------------------------------------------------- */
 /* FEATURES */
 /* -------------------------------------------------- */
 
+.features-img{
+    background-image: url(../images/features_img.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 660px;
+}
 
+.features-graph-wrapper{
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.features-report-wrapper{
+    margin-top: 120px;
+}
+
+.features-graph-alignment,
+.features-report-alignment{
+    display: flex;
+    justify-content: center;
+}
+
+.features-graph-style{
+    width: 80%;
+    height: 450px;
+}
+
+.features-report-style{
+    height: 450px;
+    width: 85%;
+}
+
+.features-duo-chunk{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.features-chunk{
+    margin-top: 40px;
+}
+
+.positive{
+    background-color: #0ea45e;
+    border-radius: 10px;
+    width: 50%;
+    float: right;
+    margin-top: 60px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.negative{
+    background-color: #c0392b;
+    border-radius: 10px;
+    width: 40%;
+    margin-top: 350px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.positive-review-example,
+.negative-review-example{
+    color: var(--white-color);
+    padding: 20px;
+}
 
 /* -------------------------------------------------- */
 
+
+
+/* -------------------------------------------------- */
+/* HOW IT WORKS */
+/* -------------------------------------------------- */
+
+.how-it-works{
+    height: 450px;
+    background-color: var(--primary-color-lighter);
+}
+
+.heading-style{
+    padding-top: 50px;
+}
+
+.works-steps-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
+.step{
+    margin-bottom: 50px;
+}
+
+.step div{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    display: block;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+}
+
+.step p{
+    padding-top: 10px;
+}
+
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* GET STARTED */
+/* -------------------------------------------------- */
+
+.easy-get-started{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.easy-get-started-wrapper{
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    height: 150px; 
+}
+
+.align-v-center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.easy-get-started-text-style{
+    color: var(--white-color);
+    font-size: 160%;
+    text-align: center;
+}
+
+.easy-get-started-btn-style:link,
+.easy-get-started-btn-style:visited{
+    background-color: var(--white-color);
+    color: var(--text-color);
+    font-size: 90%;
+    font-weight: bold;
+    padding: 15px 25px;
+    width: 200px;
+    align-self: center;
+}
+
+.easy-get-started-btn-style:hover,
+.easy-get-started-btn-style:active{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: 5px solid var(--white-color);
+    transition-duration: 0.2s;
+}
+
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------------- */
+
+footer{
+    height: 270px;
+    background-color: var(--footer-color);
+}
+
+.footer-navs{
+    padding-top: 30px;
+}
+
+.footer-heading{
+    font-size: 110%;
+    font-weight: bold;
+    color: var(--white-color);
+}
+
+.footer-text{
+    font-size: 90%;
+    color: var(--white-color);
+}
+
+.footer-links:active,
+.footer-links:visited,
+.footer-links:link,
+.footer-links:hover{
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.copy-text{
+    margin-top: 50px;
+}
+
+/* -------------------------------------------------- */
 
 
 /* -------------------------------------------------- */
@@ -225,6 +470,9 @@ header{
 /* -------------------------------------------------- */
 
 .authenticating-pages{
+    background-image: url('../images/forms_background.png');
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
 }
 
@@ -272,6 +520,10 @@ header{
     margin-bottom: 10px;
 }
 
+.input-style-error{
+    border-bottom: 1px solid #d9534f !important;
+}
+
 .input-style:focus{
     border-color: var(--accent-color-dark);
 }
@@ -295,6 +547,32 @@ header{
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+}
+
+/* -------------------------------------------------- */
+
+
+/* -------------------------------------------------- */
+/* ANIMATIONS */
+/* -------------------------------------------------- */
+
+#js--features{
+    opacity: 0;
+    animation-duration: 1s;
+}
+#js--features .animated{
+    opacity: 1;
+}
+
+
+/* AUTHENTICATION ANIMATIONS */
+.js--authenticating-pages{
+    opacity: 0;
+    animation-duration: 2s;
+}
+
+.js--authenticating-pages .animated{
+    opacity: 1;
 }
 
 /* -------------------------------------------------- */
