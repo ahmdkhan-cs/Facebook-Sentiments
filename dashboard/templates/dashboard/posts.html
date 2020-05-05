@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block title %}
+    Dashboard | {{user}}
+{% endblock %}
+    
+
+{% block dnav %}
+    <nav class="navbar navbar-expand-lg dark-nav">
+        <div class="dashboard-nav-left">
+            <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="logo" class="logo-style"></a>
+            <button class="btn btn-icon sidebar-toggler" id="btn-sidebar-toggler"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="dashboard-nav-right">
+            <p class="dashboard-nav-text">Posts</p>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block dcontent %}
+   <div class="dashboard-content-wrapper">
+        <div class="sidebar-wrapper" id="sidebar">
+            {% include 'dashboard/sidebar.html' %}
+        </div>
+        <div class="action-area-wrapper" id="action-area">
+            <div class="search-wrapper">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter page id to fetch its content.">
+                    <div class="input-group-append">
+                      <button class="btn btn-full" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="posts-content-wrapper">
+                
+                {% if posts %}
+                    <table class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <th>Post Image</th>
+                                <th>Post Message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>    
+                            {% for post in posts %}
+                                <tr>
+                                    <td>
+                                        <img class="thumbnail post-img" src="{{post.picture}}" alt="post img">
+                                    </td>
+                                    <td>
+                                        <h6><b>{{post.message}}</b></h6>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="link-style"><i class="fas fa-arrow-right"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}  
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="alert alert-danger alert-custom" role="alert">
+                        An error occured while fetching the posts!
+                    </div>
+                {% endif %}
+                    
+            </div> 
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block dfooter %}
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="footer-logo">
+                <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="footer-logo" class="logo-style"></a>
+            </div>
+        
+            <div>
+                <p class="d-footer-text text-center">&copy; All rights reserved by Facebook Sentiments 2020</p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+    
+
+    

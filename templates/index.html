@@ -5,110 +5,193 @@
 {% endblock %}
     
 
+{% block header %}
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="logo-style"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars icon-style"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-link nav-link-style js--scroll-to-features" href="#">Features</a>
+                        <a class="nav-link nav-link-style" href="#">Contact</a>
+                        <div class="dropdown">
+                            <a class="nav-link nav-link-style dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Follow Us
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item drop-link-style" href="#"><i class="fab fa-facebook-square"></i> Facebook</a>
+                                <a class="dropdown-item drop-link-style" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-nav my-2 my-lg-0">
+                        
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'dashboard:dashboard' %}" class="nav-link btn btn-full">Dashboard</a>  
 
-{% block hero %}
-    <div class="hero">
-        <div class="container"> 
-            <div class="hero-text-box">
-                <h1 id="js--hero-text">Know what people are saying about your products.</h1>
-            </div>       
-            <div class="btn-center">
-                <a href="{% url 'accounts:signup' %}" class="btn btn-full hero-btn hero-btn-full">SIGN UP FREE</a>
-                <button type="button" class="btn btn-ghost btn-sm js--scroll-to-features">SHOW ME MORE</button>
+                        {% else %}
+                            <a href="{% url 'accounts:login' %}" class="nav-link link-style nav-link-special">SIGN IN</a>
+                            <a href="{% url 'accounts:signup' %}" class="nav-link btn btn-full">SIGN UP FREE</a>  
+                        {% endif %}
+                            
+                               
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="hero">
+            <div class="container"> 
+                <div class="hero-text-box">
+                    <h1 id="js--hero-text">Know what people are saying about your products.</h1>
+                </div>       
+                <div class="btn-center">
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-full hero-btn hero-btn-full">SIGN UP FREE</a>
+                    <button type="button" class="btn btn-ghost btn-sm js--scroll-to-features">SHOW ME MORE</button>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 {% endblock %}
     
 
 {% block content %}
-    <section class="features" id="js--features">
-        <div class="container">
-            <h2>Analyze your brand reputation</h2>
-            <div class="row">
-                <div class="col-md-4 features-duo-chunk">
-                    <div class="features-chunk">
-                        <h4>Automated Sentiment Analysis</h4>
-                        <p>Perform sentiment analysis on user reviews about your product and improve your products.</p>
+    <div class="content">
+        <section class="features" id="js--features">
+            <div class="container">
+                <h2>Analyze your brand reputation</h2>
+                <div class="row">
+                    <div class="col-md-4 features-duo-chunk">
+                        <div class="features-chunk">
+                            <h4>Automated Sentiment Analysis</h4>
+                            <p>Perform sentiment analysis on user reviews about your product and improve your products.</p>
+                        </div>
+                        <div class="features-chunk">
+                            <h4>Get to know your customer</h4>
+                            <p>Learn what people like and dislike about your products to ensure customer satisfaction.</p>
+                        </div>
                     </div>
-                    <div class="features-chunk">
-                        <h4>Get to know your customer</h4>
-                        <p>Learn what people like and dislike about your products to ensure customer satisfaction.</p>
-                    </div>
-                </div>
-                <div class="col-md-8 features-img">
-                    <div class="positive">
-                        <p class="positive-review-example">I bought this cell phone last week. <span>Excellent</span> performance, <span>excellent</span> battery life and <span>impressive</span> camera. Definately worth buying!!</p>
-                    </div>
-                    <div class="negative">
-                        <p class="negative-review-example">This device has soo many <span>issues</span> like battery draining <span>issue</span>, slow charging <span>issue</span>. <span>Not a staisfying</span> experience at all!!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row features-graph-wrapper" id="js--features-graph">
-                <div class="col-md-4 features-duo-chunk">
-                    <div class="features-chunk">
-                        <h4>Generate beautiful graphs</h4>
-                        <p>View the results generated by machine learning algorithm in beautiful graphical representation.</p>
-                    </div>
-                    <div class="features-chunk">
-                        <h4>Choose your graph</h4>
-                        <p>Choose from various options and generate graph of your choice.</p>
+                    <div class="col-md-8 features-img">
+                        <div class="positive">
+                            <p class="positive-review-example">I bought this cell phone last week. <span>Excellent</span> performance, <span>excellent</span> battery life and <span>impressive</span> camera. Definately worth buying!!</p>
+                        </div>
+                        <div class="negative">
+                            <p class="negative-review-example">This device has soo many <span>issues</span> like battery draining <span>issue</span>, slow charging <span>issue</span>. <span>Not a staisfying</span> experience at all!!</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-8 features-graph-alignment">
-                    <img class="features-graph-style" src="{% static 'ProjectFBSentiments/images/features_graph.png' %}" alt="features-graph">
+                <div class="row features-graph-wrapper" id="js--features-graph">
+                    <div class="col-md-4 features-duo-chunk">
+                        <div class="features-chunk">
+                            <h4>Generate beautiful graphs</h4>
+                            <p>View the results generated by machine learning algorithm in beautiful graphical representation.</p>
+                        </div>
+                        <div class="features-chunk">
+                            <h4>Choose your graph</h4>
+                            <p>Choose from various options and generate graph of your choice.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-8 features-graph-alignment">
+                        <img class="features-graph-style" src="{% static 'ProjectFBSentiments/images/features_graph.png' %}" alt="features-graph">
+                    </div>
                 </div>
-            </div>
-            <div class="row features-report-wrapper" id="js--features-report">
-                <div class="col-md-6  features-duo-chunk">
-                    <div class="features-chunk">
-                        <h4>Download PDF reports</h4>
-                        <p>Download the graphs in the form of pdf reports and use them in presentations.</p>
+                <div class="row features-report-wrapper" id="js--features-report">
+                    <div class="col-md-6  features-duo-chunk">
+                        <div class="features-chunk">
+                            <h4>Download PDF reports</h4>
+                            <p>Download the graphs in the form of pdf reports and use them in presentations.</p>
+                        </div>
+                        <div class="features-chunk">
+                            <h4>Save the extracted data</h4>
+                            <p>Save the data fetched from facebook in CSV files.</p>
+                        </div>
                     </div>
-                    <div class="features-chunk">
-                        <h4>Save the extracted data</h4>
-                        <p>Save the data fetched from facebook in CSV files.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 features-report-alignment">
-                    <img class="features-report-style" src="{% static 'ProjectFBSentiments/images/features_report.png' %}" alt="features-report">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="heading-style">How it works &mdash; Simple as 1, 2, 3</h2>
-            <div class="works-steps-wrapper">
-                <div class="works-steps">
-                    <div class="step">
-                        <div>1</div>
-                        <p>Fetch the required posts and comments from facebook pages.</p>
-                    </div>
-                    <div class="step">
-                        <div>2</div>
-                        <p>Perform sentiment analysis of the fetched data.</p>
-                    </div>
-                    <div class="step">
-                        <div>3</div>
-                        <p>View the results of machine learning algorithm in a beautiful graphical form.</p>
+                    <div class="col-md-6 features-report-alignment">
+                        <img class="features-report-style" src="{% static 'ProjectFBSentiments/images/features_report.png' %}" alt="features-report">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="easy-get-started">
-        <div class="container">
-            <div class="row easy-get-started-wrapper">
-                <div class="col-md-6 align-v-center">
-                    <h3 class="easy-get-started-text-style">It's easy to get started</h3>
-                </div>
-                <div class="col-md-6 align-v-center">
-                    <a href="{% url 'accounts:signup' %}" class="btn easy-get-started-btn-style">SIGN UP FREE</a>
+        </section>
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="heading-style">How it works &mdash; Simple as 1, 2, 3</h2>
+                <div class="works-steps-wrapper">
+                    <div class="works-steps">
+                        <div class="step">
+                            <div>1</div>
+                            <p>Fetch the required posts and comments from facebook pages.</p>
+                        </div>
+                        <div class="step">
+                            <div>2</div>
+                            <p>Perform sentiment analysis of the fetched data.</p>
+                        </div>
+                        <div class="step">
+                            <div>3</div>
+                            <p>View the results of machine learning algorithm in a beautiful graphical form.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="easy-get-started">
+            <div class="container">
+                <div class="row easy-get-started-wrapper">
+                    <div class="col-md-6 align-v-center">
+                        <h3 class="easy-get-started-text-style">It's easy to get started</h3>
+                    </div>
+                    <div class="col-md-6 align-v-center">
+                        <a href="{% url 'accounts:signup' %}" class="btn easy-get-started-btn-style">SIGN UP FREE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}
+
+
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <div class="row footer-navs">
+                <div class="col-lg-3 col-md-4 col-sm-6 content-center">
+                    <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="footer-logo" class="logo-style"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 content-center">
+                    <div class="footer-nav">
+                        <h5 class="footer-heading">Contact</h5>
+                        <p class="footer-text"><i class="fas fa-envelope"></i> &nbsp; FBShelp@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 content-center">
+                    <div class="footer-nav">
+                        <h5 class="footer-heading">Features</h5>
+                        <nav class="nav flex-column">
+                            <a class="footer-links" href="#">Sentiment Analysis</a>
+                            <a class="footer-links" href="#">Generate Graphs</a>
+                            <a class="footer-links" href="#">Save PDF and CSV</a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 content-center">
+                    <div class="footer-nav">
+                        <h5 class="footer-heading">Follow Us</h5>
+                        <nav class="nav flex-column">
+                            <a class="footer-links" href="#"><i class="fab fa-facebook-square"></i> &nbsp; Facebook</a>
+                            <a class="footer-links" href="#"><i class="fab fa-twitter"></i> &nbsp; Twitter</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copy-text">
+                <p class="footer-text text-center">&copy; All rights reserved by Facebook Sentiments 2020</p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+    
     

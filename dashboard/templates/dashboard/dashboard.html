@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block title %}
+    Dashboard | {{user}}
+{% endblock %}
+    
+
+
+{% block dnav %}
+    <nav class="navbar navbar-expand-lg dark-nav">
+        <div class="dashboard-nav-left">
+            <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="logo" class="logo-style"></a>
+            <button class="btn btn-icon sidebar-toggler" id="btn-sidebar-toggler"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="dashboard-nav-right">
+            <p class="dashboard-nav-text">Dashboard</p>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
+        </div>
+    </nav>
+{% endblock %}
+
+
+{% block dcontent %}
+    <div class="dashboard-content-wrapper">
+        <div class="sidebar-wrapper" id="sidebar">
+           {% include 'dashboard/sidebar.html' %}
+        </div>
+        <div class="action-area-wrapper" id="action-area">
+        
+            <div class="card mb-4">
+                <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Area Chart Example</div>
+                <div class="card-body"><canvas id="myAreaChart" width="80%" height="30"></canvas></div>
+            </div>
+        
+        
+            <div class="card mb-4">
+                <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Bar Chart Example</div>
+                <div class="card-body"><canvas id="myBarChart" width="80%" height="30"></canvas></div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
+    
+    
+
+{% block dfooter %}
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="footer-logo">
+                <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="footer-logo" class="logo-style"></a>
+            </div>
+        
+            <div>
+                <p class="d-footer-text text-center">&copy; All rights reserved by Facebook Sentiments 2020</p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

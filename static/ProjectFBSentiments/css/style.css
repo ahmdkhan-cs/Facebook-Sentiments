@@ -8,6 +8,7 @@
     --text-color: #333;
     --white-color: #fff;
     --footer-color: #24242b;
+    --dark-color: #222;
 }
 
 /* -------------------------------------------------- */
@@ -46,6 +47,7 @@ h1{
     word-spacing: 4px;
     text-align: center;
     padding-top: 100px;
+    font-weight: bold;
 }
 
 
@@ -109,6 +111,7 @@ span{
 }
 
 
+
 /* -------------------------------------------------- */
 
 
@@ -162,6 +165,12 @@ span{
     color: var(--white-color);
 }
 
+.btn-icon{
+    background-color: var(--footer-color);
+    color: var(--white-color);
+    font-size: 110%;
+}
+
 /* -------------------------------------------------- */
 
 
@@ -174,6 +183,7 @@ header{
     background-image: url('../images/hero_background.jpg');
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     overflow: hidden;
 }
 
@@ -264,6 +274,7 @@ header{
 .features-img{
     background-image: url(../images/features_img.png);
     background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     height: 660px;
 }
@@ -381,6 +392,9 @@ header{
 
 .easy-get-started{
     height: 300px;
+    background-image: url('../images/easy_get_started.png');
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -431,7 +445,7 @@ header{
 /* -------------------------------------------------- */
 
 footer{
-    height: 270px;
+    /* min-height: 280px; */
     background-color: var(--footer-color);
 }
 
@@ -440,7 +454,7 @@ footer{
 }
 
 .footer-heading{
-    font-size: 110%;
+    font-size: 120%;
     font-weight: bold;
     color: var(--white-color);
 }
@@ -448,6 +462,7 @@ footer{
 .footer-text{
     font-size: 90%;
     color: var(--white-color);
+    margin: 0;
 }
 
 .footer-links:active,
@@ -459,7 +474,12 @@ footer{
 }
 
 .copy-text{
-    margin-top: 50px;
+    padding: 40px 0 20px 0;
+}
+
+.content-center{
+    display: flex;
+    justify-content: center;
 }
 
 /* -------------------------------------------------- */
@@ -550,6 +570,129 @@ footer{
 }
 
 /* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* DASHBOARD */
+/* -------------------------------------------------- */
+
+.dark-nav{
+    padding: 0;
+    box-shadow: none;
+}
+
+.dashboard-nav-left{
+    width: 15%;
+    position: relative;
+    background-color: var(--footer-color);
+    padding: 5px 0;
+}
+
+.dashboard-nav-right{
+    width: 85%;
+    position: relative;
+    padding: 5px 0;
+}
+
+
+.sidebar-toggler,
+.signout-btn{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+
+.dashboard-nav-text{
+    font-size: 180%;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0,-50%);
+}
+
+
+
+.dashboard-footer{
+    background-color: var(--footer-color);
+    clear: both;
+}
+
+.footer-logo{
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.d-footer-text{
+    font-size: 90%;
+    color: var(--white-color);
+    margin: 0;
+    padding: 5px 0;
+}
+
+
+.dashboard-content-wrapper{
+    width: 100%;
+    min-height: calc(100vh - 75px);
+    display: flex;
+}
+
+.search-wrapper{
+    width: 35%;
+    margin: 20px auto;
+}
+
+.sidebar-wrapper{
+    width: 15%;
+    float: left;
+    background-color: var(--dark-color); 
+}
+
+.action-area-wrapper{
+    width: 85%;
+    float: right;
+    background-color: var(--accent-color);
+}
+
+
+.sidebar-link{
+    font-size: 80%;
+    color: var(--accent-color-dark);
+    padding: 0 0 0 30px;
+}
+
+.sidebar-link:hover{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.link-wrapper{
+    margin-top: 10px;
+}
+
+.posts-content-wrapper{
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+}
+
+
+.post-img{
+    width: 70px;
+    height: auto;
+}
+
+.alert-custom{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+/* -------------------------------------------------- */
+
 
 
 /* -------------------------------------------------- */
