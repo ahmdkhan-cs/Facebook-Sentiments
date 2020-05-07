@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-
 {% block title %}
     Dashboard | {{user}}
 {% endblock %}
@@ -14,7 +13,7 @@
             <button class="btn btn-icon sidebar-toggler" id="btn-sidebar-toggler"><i class="fas fa-bars"></i></button>
         </div>
         <div class="dashboard-nav-right">
-            <p class="dashboard-nav-text">Posts</p>
+            <p class="dashboard-nav-text">Dashboard | Posts</p>
             <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
         </div>
     </nav>
@@ -34,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="posts-content-wrapper">
+            <div class="content-wrapper">
                 
                 {% if posts %}
                     <table class="table table-stripped">
@@ -49,13 +48,23 @@
                             {% for post in posts %}
                                 <tr>
                                     <td>
-                                        <img class="thumbnail post-img" src="{{post.picture}}" alt="post img">
+                                        {% if post.picture %}
+                                            <img class="thumbnail post-img" src="{{post.picture}}" alt="post img">
+                                        {% else %}
+                                            <img class="thumbnail post-img" src="{% static 'ProjectFBSentiments/images/noimage.jpg' %}" alt="post img">
+                                        {% endif %}
                                     </td>
                                     <td>
-                                        <h6><b>{{post.message}}</b></h6>
+                                        {% if post.message %}
+                                            <h6><b>{{post.message}}</b></h6>                                            
+                                        {% else %}
+                                            <h6><b>This post has no message!</b></h6>
+                                        {% endif %}
+                                            
+
                                     </td>
                                     <td>
-                                        <a href="#" class="link-style"><i class="fas fa-arrow-right"></i></a>
+                                        <a href="{% url 'dashboard:postview' id=post.id %}" class="link-style">View Post <i class="fas fa-arrow-right"></i></a>
                                     </td>
                                 </tr>
                             {% endfor %}  
@@ -75,17 +84,7 @@
 
 
 {% block dfooter %}
-    <footer class="dashboard-footer">
-        <div class="container">
-            <div class="footer-logo">
-                <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="footer-logo" class="logo-style"></a>
-            </div>
-        
-            <div>
-                <p class="d-footer-text text-center">&copy; All rights reserved by Facebook Sentiments 2020</p>
-            </div>
-        </div>
-    </footer>
+    {% include 'dashboard/dfooter.html' %}
 {% endblock %}
     
 

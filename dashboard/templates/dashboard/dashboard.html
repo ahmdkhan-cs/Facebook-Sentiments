@@ -47,15 +47,5 @@
     
 
 {% block dfooter %}
-    <footer class="dashboard-footer">
-        <div class="container">
-            <div class="footer-logo">
-                <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="footer-logo" class="logo-style"></a>
-            </div>
-        
-            <div>
-                <p class="d-footer-text text-center">&copy; All rights reserved by Facebook Sentiments 2020</p>
-            </div>
-        </div>
-    </footer>
+    {% include 'dashboard/dfooter.html' %}
 {% endblock %}

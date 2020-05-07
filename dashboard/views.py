@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
-import facebook as fb
-from .facebook_credentials import Credentials
+from .facebook_graph_api_explorer import FetchData
 
 # Create your views here.
+
+data = FetchData()
 
 @login_required
 def dashboard(request):
@@ -16,27 +17,23 @@ def dashboard(request):
 
 @login_required
 def posts(request):
+   
     context = {
-        'posts' : data_access()
+        'posts': data.fetch_all_posts("826799967663341")
     }
     return render(request, 'dashboard/posts.html', context)
 
 
-def data_access():
-    posts = []
-    cred = Credentials()
-    try:
-        graph = fb.GraphAPI(cred.get_token())
-        page = graph.get_object('826799967663341', fields='posts{comments, picture, message}')
+@login_required
+def post_view(request, id):
+    context = {
+        'post': data.fetch_one_post(id)
+    }
+    
+    return render(request, 'dashboard/postview.html', context)
 
-        for data in page['posts']['data']:
-            if 'picture' in data.keys():
-                posts.append(data)
 
-        return posts
 
-    except:
-        return posts
 
    
 

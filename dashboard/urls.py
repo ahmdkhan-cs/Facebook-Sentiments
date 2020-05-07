@@ -6,4 +6,5 @@ app_name = "dashboard"
 urlpatterns = [
     path('', views.dashboard, name="dashboard"),
     path('posts', views.posts, name="posts"),
+    re_path(r'^post/(?P<id>[0-9_]+)/$', views.post_view, name="postview"),
 ]

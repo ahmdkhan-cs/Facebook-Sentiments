@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    Dashboard | {{user}}
+{% endblock %}
+    
+
+
+{% block dnav %}
+    <nav class="navbar navbar-expand-lg dark-nav">
+        <div class="dashboard-nav-left">
+            <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_footer_img.png' %}" alt="logo" class="logo-style"></a>
+            <button class="btn btn-icon sidebar-toggler" id="btn-sidebar-toggler"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="dashboard-nav-right">
+            <p class="dashboard-nav-text">Dashboard | Post View</p>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
+        </div>
+    </nav>
+{% endblock %}
+
+
+{% block dcontent %}
+    <div class="dashboard-content-wrapper">
+        <div class="sidebar-wrapper" id="sidebar">
+           {% include 'dashboard/sidebar.html' %}
+        </div>
+        <div class="action-area-wrapper" id="action-area">
+
+            <div class="content-wrapper">
+                <div class="postview-left-wrapper">
+                    {% if post.picture %}
+                    <img class="postview-post-img" src="{{ post.picture }}" alt="post view img">
+                    {% else %}
+                        <img class="postview-post-img" src="{% static 'ProjectFBSentiments/images/noimage.jpg' %}" alt="post view img">
+                    {% endif %}
+                    
+                    {% if post.message %}
+                        <h3 class="postview-post-msg">{{post.message}}</h3>
+                    {% else %}
+                        <h3 class="postview-post-msg">No message!</h3>
+                    {% endif %}
+                    <a href="#" class="btn btn-full">Analyze Post</a>
+                </div>
+                <div class="postview-right-wrapper">
+                    <h4 class="postview-cmnt-head">Comments</h4>
+                    <hr>
+                    
+                    {% if post.comments %}
+                        
+                        {% for comment in post.comments.data %}
+                            <p class="postview-post-cmnt">{{comment.message}}</p>
+                        {% endfor %}
+                            
+                    {% else %}
+                        <p>No comments!</p>
+                    {% endif %}
+                        
+                </div>
+            </div>
+           
+        </div>
+    </div>
+{% endblock %}
+    
+    
+
+{% block dfooter %}
+    {% include 'dashboard/dfooter.html' %}
+{% endblock %}

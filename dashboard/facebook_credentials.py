@@ -1,6 +1,6 @@
 class Credentials:
     def __init__(self):
-        self.TOKEN = "EAAHtsVeAtZCkBAL9rIiV9X5ArTh8xGnx4gR189DnfV1VfV41ZC6TICFf8lkHj7BvyGnVxn0ZCTetpFgSQdiBS3fZBY3xZCKL7KvOzZALe5ZCYcSo8ZAdstkH5uK402J0kxZBDJCoLWKxKLEZC9ipSWJHyt17bdVRuceNz68nF3ZAt4h7pZAUJb7Gj9FOSIe0rxg9GzQZD"
+        self.TOKEN = "EAAHtsVeAtZCkBAAvVInq7ILBbHH7el6Opph1R9Vo66hkYf3ZCaEnoAZAiZBrSP2KNuigIx3v74PhZCyLSVAPaQx95HYlQfFZCtRZBQqyoBcTZA154oZBbdsy8KwxACO2EZAZBIuLeBZBaymCFa7CW6rr2QCOujH2Hl3bGT1z0XUUHFmf8GcE2PTnj2lA7pmKfT3N2HoZD"
     
     def get_token(self):
         return self.TOKEN
