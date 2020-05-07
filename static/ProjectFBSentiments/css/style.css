@@ -632,6 +632,10 @@ footer{
     padding: 5px 0;
 }
 
+.d-welcome-text{
+    margin: 10px 0;
+}
+
 
 .dashboard-content-wrapper{
     width: 100%;
