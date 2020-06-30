@@ -41,7 +41,7 @@
                     {% else %}
                         <h3 class="postview-post-msg">No message!</h3>
                     {% endif %}
-                    <a href="#" class="btn btn-full">Analyze Post</a>
+                    <button class="btn btn-full">Analyze Post</button>
                 </div>
                 <div class="postview-right-wrapper">
                     <h4 class="postview-cmnt-head">Comments</h4>
@@ -58,6 +58,23 @@
                     {% endif %}
                         
                 </div>
+                
+                <!-- <div class="results">
+                    <p>Accuracy of model : {{accuracy}}</p>
+                    <p>Positive reviews : {{p_count}}</p>
+                    <p>Negative reviews : {{n_count}}</p>
+                    
+
+                    {% for pred in prediction %}
+                        <p>
+                            {% for p in pred %}
+                                {{p}} &nbsp;
+                            {% endfor %}
+                        </p>
+                            
+                    {% endfor %}
+                            
+                </div> -->
             </div>
            
         </div>

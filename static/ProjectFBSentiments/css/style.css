@@ -726,6 +726,11 @@ footer{
     margin: 0 auto;
 }
 
+.results{
+    clear: both;
+    padding: 20px 0;
+}
+
 
 /* -------------------------------------------------- */
 

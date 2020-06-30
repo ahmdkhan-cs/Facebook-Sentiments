@@ -30,7 +30,15 @@
         <div class="action-area-wrapper" id="action-area">
             <h4 class="text-center d-welcome-text">Hi there {{user}}! Welcome to your dashboard.</h4>
             <div class="content-wrapper">
-                
+                <h5 class="text-center"><b>Your Pages</b></h5>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Creative Learning</h5>
+                        <a href="{% url 'dashboard:posts' %}" class="btn btn-full">See Posts</a>
+                    </div>
+                </div>
+
+
                 <!-- <div class="card mb-4">
                     <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Area Chart Example</div>
                     <div class="card-body"><canvas id="myAreaChart" width="80%" height="30"></canvas></div>
