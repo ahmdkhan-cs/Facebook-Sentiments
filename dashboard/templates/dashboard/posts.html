@@ -14,7 +14,7 @@
         </div>
         <div class="dashboard-nav-right">
             <p class="dashboard-nav-text">Dashboard | Posts</p>
-            <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
+            <a href="{% url 'accounts:signout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
         </div>
     </nav>
 {% endblock %}
@@ -25,14 +25,7 @@
             {% include 'dashboard/sidebar.html' %}
         </div>
         <div class="action-area-wrapper" id="action-area">
-            <div class="search-wrapper">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter page id to fetch its content.">
-                    <div class="input-group-append">
-                      <button class="btn btn-full" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
+           
             <div class="content-wrapper">
                 
                 {% if posts %}

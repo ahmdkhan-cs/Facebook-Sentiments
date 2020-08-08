@@ -16,7 +16,7 @@
         </div>
         <div class="dashboard-nav-right">
             <p class="dashboard-nav-text">Dashboard</p>
-            <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
+            <a href="{% url 'accounts:signout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
         </div>
     </nav>
 {% endblock %}
@@ -29,14 +29,40 @@
         </div>
         <div class="action-area-wrapper" id="action-area">
             <h4 class="text-center d-welcome-text">Hi there {{user}}! Welcome to your dashboard.</h4>
+            <div class="search-wrapper">
+                <form method="POST" action="{% url 'dashboard:searchpage' %}" name="search">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="pageid" placeholder="Enter page id to fetch its content.">
+                        <div class="input-group-append">
+                        <button class="btn btn-full" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           
             <div class="content-wrapper">
                 <h5 class="text-center"><b>Your Pages</b></h5>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Creative Learning</h5>
-                        <a href="{% url 'dashboard:posts' %}" class="btn btn-full">See Posts</a>
+                
+                {% if pages %}
+                    <div class="row">
+                        {% for page in pages %}
+                        <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top card-img" src="{{page.page_picture}}" alt="{{page.page_name}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{page.page_name}}</h5>
+                                    <a href="{% url 'dashboard:posts' page_id=page.page_id %}" class="btn btn-full">See Posts</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
-                </div>
+
+                {% else %}
+                    <h6 class="text-center">You currently donot searched for any pages, enter your page id in the search bar to get started</h6>
+                {% endif %}
+                
             </div>
 
             

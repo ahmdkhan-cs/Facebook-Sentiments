@@ -15,7 +15,7 @@
         </div>
         <div class="dashboard-nav-right">
             <p class="dashboard-nav-text">Dashboard | Post View</p>
-            <a href="{% url 'accounts:logout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
+            <a href="{% url 'accounts:signout' %}" class="btn btn-full signout-btn">SIGN OUT</a>
         </div>
     </nav>
 {% endblock %}
@@ -76,12 +76,17 @@
                         </div>
                     </div>
                     <p class="accuracy"></p>
-
-                    <canvas id="chartResult" width="50%" height="15"></canvas>
-                            
+                    <select class="form-control-sm select-graph" name="selectgraph" id="selectgraph">
+                        <option value="bar" selected>Bar Graph</option>
+                        <option value="pie">Pie Chart</option>
+                    </select>
+                    <canvas id="barGraph" class="bar-graph" width="50%" height="15"></canvas>
+                    <canvas id="pieChart" class="pie-chart" width="50%" height="15"></canvas>
+                    <div class="csv-btn-wrapper">
+                        <button type="button" class="btn btn-full btn-csv" id="generate-csv">Generate CSV file</button>
+                    </div>
                 </div>
             </div>
-           
         </div>
     </div>
 {% endblock %}
@@ -90,8 +95,6 @@
 
 {% block dfooter %}
     {% include 'dashboard/dfooter.html' %}
-
-    
 {% endblock %}
 
 
@@ -100,6 +103,101 @@
 <script type="text/javascript">
     // AJAX Calls
     $(document).ready(function(){
+
+        var p_count = 0;
+        var n_count = 0;
+        var prediction = null;
+        var accuracy = 0;
+
+       
+
+        function barGraph(){
+            // Set new default font family and font color to mimic Bootstrap's default styling
+            Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+            Chart.defaults.global.defaultFontColor = '#292b2c';
+
+            // Bar Chart Example
+            var ctx = $("#barGraph");
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Positive Reviews", "Negative Reviews"],
+                    datasets: [{
+                        label: 'Reviews',
+                        backgroundColor: ["#0be881", "#ff5e57"],
+                        borderColor: ["#05c46b", "#ff3f34"],
+                        borderWidth: 2,
+                        data: [
+                            p_count,
+                            n_count
+                        ]
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                            display: false
+                            },
+                            ticks: {
+                            maxTicksLimit: 2
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                            min: 0,
+                            max: 10,
+                            maxTicksLimit: 5
+                            },
+                            gridLines: {
+                            display: true
+                            }
+                        }]
+                    },
+                    responsive: true,
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Reviews Classification Chart'
+                    }
+                }
+            });
+        }
+
+        function pieChart(){
+            var config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            p_count,
+                            n_count
+                        ],
+                        backgroundColor: [
+                            "#0be881",
+                            "#ff5e57"
+                        ]
+                    }],
+                    labels: [
+                        "Positive",
+                        "Negative"
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Reviews Classification Chart'
+                    }
+                }
+            };
+
+            
+            var ctx = $("#pieChart");
+            window.myPie = new Chart(ctx, config);
+        }
 
         $('#analyze-post').on('click', function(e){
             e.preventDefault();
@@ -116,79 +214,61 @@
                 },
                 success: function(response){
                     $(".loading-wrapper").css("display", "none");
-                    var p_count = response.p_count;
-                    var n_count = response.n_count;
-                    var accuracy = response.accuracy;
-                    var prediction = response.prediction;
+                    p_count = response.p_count;
+                    n_count = response.n_count;
+                    accuracy = response.accuracy;
+                    prediction = response.prediction;
 
+                    $("#selectgraph").css("display", "block");
                     $(".accuracy").text("Accuracy of model : " + accuracy);
+                    $(".btn-csv").css("display", "block");
 
-                    // Set new default font family and font color to mimic Bootstrap's default styling
-                    Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-                    Chart.defaults.global.defaultFontColor = '#292b2c';
-
-                    // Bar Chart Example
-                    var ctx = $("#chartResult");
-                    var myLineChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ["Positive Reviews", "Negative Reviews"],
-                            datasets: [{
-                                label: 'Reviews',
-                                backgroundColor: ["#0be881", "#ff5e57"],
-                                borderColor: ["#05c46b", "#ff3f34"],
-                                borderWidth: 2,
-                                data: [
-                                    p_count,
-                                    n_count
-                                ]
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                xAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                    maxTicksLimit: 2
-                                    }
-                                }],
-                                yAxes: [{
-                                    ticks: {
-                                    min: 0,
-                                    max: 10,
-                                    maxTicksLimit: 5
-                                    },
-                                    gridLines: {
-                                    display: true
-                                    }
-                                }]
-                            },
-                            responsive: true,
-                            legend: {
-                                display: false
-                            },
-                            title: {
-                                display: true,
-                                text: 'Reviews Classification Chart'
-                            }
-                        }
-                    });
-
-
-                    // for(let i=0; i<prediction.length; i++){
-                    //     let pred = prediction[i];
-                    //     let pstr = pred[0] + " " + pred[1];
-                    //     $('.results').append("<p>" + pstr + "</p>");
-                    // }
+                    barGraph();
+                    $(".btn-csv").css("display", "block");
                 },
                 error: function(response){
                     alert(response['error']);
                 }
             });
         });
+
+        $("#generate-csv").on("click", function(e){
+            e.preventDefault();
+            var predLength = prediction.length;
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'dashboard:generatecsv' %}",
+                data: {
+                    "prediction":prediction,
+                    "predLength":predLength
+                },
+                success: function(response){
+                    alert("File successfully created at your dasktop");
+                    
+                },
+                error: function(response){
+                    alert(response['error']);
+                }
+            });
+        });
+
+
+        $("#selectgraph").on("change", function(){
+            var selectedoption = $("#selectgraph option:selected").val();
+
+            if(selectedoption == "pie"){
+                $("#barGraph").css("display", "none");
+                $("#pieChart").css("display", "block");
+                pieChart();
+
+            }else{
+                $("#pieChart").css("display", "none");
+                $("#barGraph").css("display", "block");
+                barGraph();
+            }
+        });
     });
 </script>
 {% endblock %}
     
+

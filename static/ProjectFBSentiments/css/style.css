@@ -525,6 +525,10 @@ footer{
     padding: 20px;
 }
 
+.login-error-alert{
+    margin: 16px 16px 0 16px;
+}
+
 .btn-signup,
 .btn-login{
     display: flex;
@@ -660,6 +664,10 @@ footer{
     background-color: var(--accent-color);
 }
 
+.card-img{
+    width: auto;
+    height: 180px;
+}
 
 .sidebar-link{
     font-size: 80%;
@@ -731,8 +739,31 @@ footer{
     padding: 20px 0;
 }
 
+.select-graph{
+    width: auto;
+    float: right;
+    display: none;
+}
 
+
+.bar-graph{
+    display: block;
+}
+
+.pie-chart{
+    display: none;
+}
+
+.csv-btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.btn-csv{
+    display: none;
+    margin: 20px 0 0 0;
+}
 /* -------------------------------------------------- */
+
 
 
 

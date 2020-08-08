@@ -13,10 +13,20 @@
             <a href="{% url 'index' %}"><img src="{% static 'ProjectFBSentiments/images/Logo_img.png' %}" alt="logo" class="authenticating-pages-logo-style"></a>
         </div>
         <h3 class="text-center">Sign In</h3>
-        <!-- <p class="text-center">Signup to see your customer's reviews about your products.</p> -->
+        
+       
+            
         <div class="login-form-wrapper">
             <div class="login-form">
-                <form method="POST" class="form" name="login">
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissible fade show login-error-alert" role="alert">
+                        {{error}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+                <form method="POST" action="{% url 'accounts:signin' %}" class="form" name="login">
                     {% csrf_token %}
                     <div class="form-group">
                         <p class="text-danger" id="validusername"></p>

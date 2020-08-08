@@ -1,15 +1,15 @@
 from django.db import models
-from accounts.models import User
+from django.contrib.auth.models import User
 # Create your models here.
 
-# class Page(models.Model):
-#     page_id = models.CharField(max_length = 255)
-#     page_name = models.CharField(max_length = 255)
-#     page_picture = models.TextField()
-#     page_user = models.ForeignKey(User, on_delete=models.CASCADE)
+class Page(models.Model):
+    page_id = models.IntegerField()
+    page_name = models.CharField(max_length = 255)
+    page_picture = models.TextField()
+    page_user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return self.page_name
+    def __str__(self):
+        return self.page_name
 
 # class Post(models.Model):
 #     post_id = models.CharField(max_length = 255)
