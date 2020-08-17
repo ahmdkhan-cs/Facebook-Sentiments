@@ -1,6 +1,6 @@
 // Hero text animation
 $('document').ready(function(){
-    var text = ["Know what people are saying about your products.", "Generate Graphs and PDF reports.", "Fetch your customers reviews."];
+    var text = ["Know what people are saying about your products.", "Generate Graphs.", "Fetch your customers reviews."];
     var counter = 0;
     setInterval(function() {
         $("#js--hero-text").fadeOut(function() {
